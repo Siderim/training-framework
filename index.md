@@ -1,4 +1,4 @@
-https://github.com/siderim.io
+https://siderim.github.io/training_framework/
 
 
 
