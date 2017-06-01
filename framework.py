@@ -103,7 +103,7 @@ def fetch_args(args):
 	if "-m" in args:
 		classification = args[args.index("-m") + 1]
 	else:
-		print "No training method detected, see manual."
+		print("No training method detected, see manual.")
 		sys.exit(1)
 	
 	if "-tr" in args:
@@ -191,11 +191,11 @@ if __name__ == '__main__':
 		clf = train_dt(train_data)
 
 	else:
-		print "Method not defined"
+		print("Method not defined")
 		sys.exit(1)
 	
 	y_pred, y_true = predict(clf,test_data)
-	print build_classification_report(y_pred,y_true)
+	print(build_classification_report(y_pred,y_true))
 
 	if output != False:
 		output_results(test_data, y_pred, output)

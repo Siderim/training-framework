@@ -18,8 +18,7 @@ def preprocess_text(text):
 	text = text.lower()
 	text = unidecode(text)
 	text = remove_rt(text)
-	text = remove_twitter
-	_user_mentions(text)
+	text = remove_twitter_user_mentions(text)
 	text = remove_hashtags(text)
 	text = remove_links(text)
 	text = remove_special_chars(text)
