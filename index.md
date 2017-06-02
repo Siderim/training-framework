@@ -2,7 +2,7 @@ https://siderim.github.io/training_framework/
 
 
 
-## Welcom to Training-Framework
+## Welcome to Training-Framework
 
 
 
