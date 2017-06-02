@@ -2,13 +2,11 @@ https://siderim.github.io/training_framework/
 
 
 
-## Welcome to GitHub Pages
+## Welcom to Training-Framework
 
-You can use the [editor on GitHub](https://github.com/Siderim/training_framework/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
 
-### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+
 
 ```markdown
 
@@ -75,19 +73,3 @@ INVOCATION:
       import sklearn
     
  
- 
-https://siderim.github.io/training_framework/
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
