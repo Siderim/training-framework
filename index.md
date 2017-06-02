@@ -5,11 +5,6 @@ https://siderim.github.io/training_framework/
 ## Welcome to Training-Framework
 
 
-
-
-
-```markdown
-
                     *ML Text Classifier README* 
               ____________________________________________
 
@@ -71,7 +66,4 @@ INVOCATION:
       import pandas
       import csv
       import sklearn
-      
-```
-    
- 
+
