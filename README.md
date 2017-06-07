@@ -5,9 +5,6 @@
 NAME:
     ML Text Classifier
     
-AUTHORS:
-    Michael Siderius
-    Rimika Majumdar
     
 LAST MODIFIED:
     May 31, 2017
