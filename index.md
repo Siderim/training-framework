@@ -30,20 +30,20 @@ INVOCATION:
      To invoke the program, it requres specific flags. There is one required flag and 3 optional flags.
      
      You must specify the model to be used using the '-m' flag. 
-              @ Multipolynomial Naive Bayes:            "python framekwork.py -m nb" 
-              @ Support Vector Machine:                 "python framekwork.py -m svm" 
-              @ Random Forest:                          "python framekwork.py -m rf"
-              @ Decision Tree:                          "python framekwork.py -m dt"
-              @ Multi-layer Perceptron Neural Network:  "python framekwork.py -m nn"
+              @ Multipolynomial Naive Bayes:            "python framework.py -m nb" 
+              @ Support Vector Machine:                 "python framework.py -m svm" 
+              @ Random Forest:                          "python framework.py -m rf"
+              @ Decision Tree:                          "python framework.py -m dt"
+              @ Multi-layer Perceptron Neural Network:  "python framework.py -m nn"
               
       To use a custom train set:
-              @ Custom Train Set:                       "python framekwork.py -m svm -tr customTrain.csv"
+              @ Custom Train Set:                       "python framework.py -m svm -tr customTrain.csv"
       
       To use a custom test set:
-              @ Custom Test Set:                        "python framekwork.py -m svm -te customTest.csv"
+              @ Custom Test Set:                        "python framework.py -m svm -te customTest.csv"
       
       To output the resulting predictions:
-              @ Output CSV file:                        "python framekwork.py -o output.csv -m svm -te customTest.csv"
+              @ Output CSV file:                        "python framework.py -o output.csv -m svm -te customTest.csv"
               
       Note: Flag order does not matter
  
