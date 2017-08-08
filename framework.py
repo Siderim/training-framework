@@ -1,4 +1,4 @@
-#
+##
 # @author: Michael Siderius
 # @desc: Framework for text classification.  
 # @lang: Python2.7
@@ -19,9 +19,8 @@ from sklearn import svm, naive_bayes, tree
 from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 from sklearn.ensemble import RandomForestClassifier as RFC
 from sklearn.metrics import classification_report
-
-tfidf_vectorizer = TfidfVectorizer(stop_words=nltk.corpus.stopwords.words('english'),  strip_accents='ascii')
-write_to_csv = True
+tfidf_vectorizer = TfidfVectorizer(analyzer='word', ngram_range=(1,4), min_df = 0, stop_words=nltk.corpus.stopwords.words('english'))
+write_to_csv = False
 
 
 # @method: fetch_args()
@@ -40,7 +39,7 @@ def extract_features(docs):
 def train_svm(data):
 	X = extract_features(row[0] for row in data)
 	x = [row[1] for row in data]
-	clf = svm.SVC(kernel='linear', probability=True)
+	clf = svm.SVC(kernel='linear', probability=True, C=.9, gamma=.3125)
 	clf.fit(X, x)
 	return clf
 
@@ -126,8 +125,10 @@ def predict(clf,test_data):
 	docs = map(pre.preprocess_text, [row[0] for row in test_data])
 	tfidf = tfidf_vectorizer.transform(docs)
 	y_pred = clf.predict(tfidf)
-
-	return y_pred, y_true
+        
+#        cc = transform(y_pred, test_data)	
+        
+        return y_pred, y_true
 
 
 # @method: fetch_args()
@@ -161,6 +162,30 @@ def output_results(entry,y_pred,output):
 	rows = zip(entry,y_pred)
 	mywriter.writerows(rows)
 	csv_out.close()
+import collections
+
+def transform(y_pred, test_data):
+    cc = y_pred 
+    count = 0
+    dic=[]
+    dicT=[]
+    with open("profanity.txt", "r") as f:
+        for line in f:
+            dic.append(line.rsplit())
+    
+    for x in dic:
+        dicT.append(x[0])
+    
+    for x in test_data:
+        entry =  x[0].split()
+        for word in entry:
+            if word in dicT:
+                cc[count] = 1
+         
+        count = count + 1
+    return cc
+
+
 
 
 if __name__ == '__main__':
@@ -169,7 +194,7 @@ if __name__ == '__main__':
 	if train_set == 'default': train_data = 'train.csv'
 	else: train_data = train_set
 	
-	if test_set == 'default': test_data = 'test.csv'
+	if test_set == 'default': test_data = 'test_solutions.csv'
 	else: test_data = test_set
 
 	train_data = pd.read_csv(train_data, encoding='utf8').as_matrix()
@@ -195,18 +220,10 @@ if __name__ == '__main__':
 		sys.exit(1)
 	
 	y_pred, y_true = predict(clf,test_data)
-	print(build_classification_report(y_pred,y_true))
+        #c1 = transform(y_pred,test_data)
+	print(build_classification_report(y_pred, y_true))
 
 	if output != False:
 		output_results(test_data, y_pred, output)
-
-
-
-
-
-
-
-
-
 
 
